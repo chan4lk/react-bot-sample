@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { PasswordCard } from './password-card';
 const activityMiddleware = () => (next) => ({
   activity,
   nextVisibleActivity,
@@ -8,7 +8,7 @@ const activityMiddleware = () => (next) => ({
   const { name, type } = activity;
 
   if (type === 'event' && name === 'passwordInput') {
-    return () => <div>Custom Card here</div>;
+    return () => <PasswordCard config={{}} />;
   } else {
     return next({ activity, nextVisibleActivity, ...otherArgs });
   }

@@ -2285,6 +2285,11 @@ adaptivecards@1.2.6:
   resolved "https://registry.yarnpkg.com/adaptivecards/-/adaptivecards-1.2.6.tgz#2be1f7145693dbd63e9f1b6128d52c327fff6b84"
   integrity sha512-/l34rvdRzQ20QdGLk+awRUotexu3N4Ih3O0qR8cM+2wWe0pggvWhmFdwVFmM+YgIS5pWtl2u7XAJynUaFIQAIw==
 
+adaptivecards@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/adaptivecards/-/adaptivecards-2.4.0.tgz#8ac8eb33ba68efd9499a46dcc9d450554b4e86f6"
+  integrity sha512-Po9+fJaaf8Fm/qDUIkGt5eujpNG1kLhpay5eE7bh3ABQ2vOXDxmdddtg9/f+ekgNJR+D2UoOAwGBEfjv0UQR9A==
+
 address@1.1.2, address@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
