@@ -2,7 +2,7 @@ import React, { useMemo, useState, useCallback } from 'react';
 import { createStore, createStyleSet } from 'botframework-webchat';
 import WebChat from './WebChat';
 
-export default () => {
+export const App = () => {
   const store = useMemo(
     () =>
       createStore({}, ({ dispatch }) => (next) => (action) => {
@@ -35,7 +35,7 @@ export default () => {
     []
   );
 
-  const [newMessage, setNewMessage] = useState(false);
+  const [, setNewMessage] = useState(false);
   const [token, setToken] = useState();
 
   const handleFetchToken = useCallback(async () => {
@@ -60,3 +60,5 @@ export default () => {
     />
   );
 };
+
+export default App;

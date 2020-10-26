@@ -5,6 +5,7 @@ import ReactWebChat, {
 } from 'botframework-webchat';
 
 import './WebChat.css';
+import { activityMiddleware, attachmentMiddleware } from './cards';
 
 const WebChat = ({ className, onFetchToken, store, token }) => {
   const directLine = useMemo(() => createDirectLine({ token }), [token]);
@@ -21,8 +22,15 @@ const WebChat = ({ className, onFetchToken, store, token }) => {
     onFetchToken();
   }, [onFetchToken]);
 
+  store.dispatch({
+    type: 'WEB_CHAT/SET_SEND_BOX',
+    payload: { text: 'sample:password-input' },
+  });
+
   return token ? (
     <ReactWebChat
+      activityMiddleware={activityMiddleware}
+      attachmentMiddleware={attachmentMiddleware}
       className={`${className || ''} web-chat`}
       directLine={directLine}
       store={store}
