@@ -46,7 +46,7 @@ export const PasswordCard = ({ payload, config }) => {
   // whenever an action is clicked in the card
   adaptiveCard.onExecuteAction = (action) => {
     alert('Ow!');
-    postBack({ text: 'sample:password-input' });
+    postBack('sample:password-input');
   };
 
   // Parse the card payload
@@ -58,7 +58,7 @@ export const PasswordCard = ({ payload, config }) => {
   return (
     <div
       ref={(n) => {
-        n && n.appendChild(renderedCard);
+        n && n.childNodes.length === 0 && n.appendChild(renderedCard);
       }}
     />
   );
