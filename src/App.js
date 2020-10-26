@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import ReactWebChat, { createDirectLine } from 'botframework-webchat';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default () => {
+  const [directLine, setDirectLine] = useState();
 
-export default App;
+  useEffect(() => {
+    async function fetchToken() {
+      try {
+        const res = await fetch(
+          'https://webchat-mockbot.azurewebsites.net/directline/token',
+          { method: 'POST' }
+        );
+        const { token } = await res.json();
+        const directLine = createDirectLine({ token });
+        setDirectLine(directLine);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchToken();
+  }, []);
+
+  if (directLine) {
+    return (
+      <ReactWebChat
+        className="bot"
+        directLine={directLine}
+        userID="YOUR_USER_ID"
+      />
+    );
+  } else {
+    return <div className="bot">Loading...</div>;
+  }
+};
